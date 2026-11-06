@@ -333,3 +333,4 @@ def test_openrouter_uses_openai_compatible_client_without_network(monkeypatch):
     assert calls["client"]["base_url"] == "https://openrouter.ai/api/v1"
     assert calls["client"]["api_key"] == "test-key-not-sent-over-network"
     assert calls["completion"]["model"] == "provider/test-model"
+    assert calls["completion"]["max_tokens"] == 400

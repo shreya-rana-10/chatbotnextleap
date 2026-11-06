@@ -55,14 +55,17 @@ class ProviderClient(LLMClient):
     def _request(self, system: str, user: str) -> str:
         client = self._get_client()
         if self.provider in {"groq", "openai", "openrouter"}:
-            response = client.chat.completions.create(
-                model=self.model,
-                temperature=self.temperature,
-                messages=[
+            request_options = {
+                "model": self.model,
+                "temperature": self.temperature,
+                "messages": [
                     {"role": "system", "content": system},
                     {"role": "user", "content": user},
                 ],
-            )
+            }
+            if self.provider == "openrouter":
+                request_options["max_tokens"] = 400
+            response = client.chat.completions.create(**request_options)
             return response.choices[0].message.content or ""
         if self.provider == "gemini":
             response = client.generate_content(
