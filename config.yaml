@@ -1,0 +1,35 @@
+paths:
+  sources: data/sources.csv
+  raw: data/raw
+  scraped: data/scraped
+  loaded: data/loaded/documents.jsonl
+  chunks: data/chunks/chunks.jsonl
+  embeddings: data/embeddings
+  chroma: data/chroma
+  logs: logs/queries.jsonl
+scraping:
+  timeout_seconds: 30
+  retries: 2
+  min_text_chars: 1500
+  browser_fallback: true
+chunking:
+  strategy: section_aware
+  chunk_size: 500
+  chunk_overlap: 50
+embedding:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  batch_size: 32
+vector_db:
+  provider: chroma
+  collection: hdfc_mf_faq
+retrieval:
+  top_k: 4
+  min_score: 0.20
+llm:
+  provider: openrouter
+  max_sentences: 3
+  temperature: 0.0
+  timeout_seconds: 30
+links:
+  educational: https://www.amfiindia.com/investor-corner
+  factsheet_fallback: https://groww.in/mutual-funds/amc/hdfc-mutual-funds

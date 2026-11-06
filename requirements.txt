@@ -1,0 +1,15 @@
+requests
+beautifulsoup4
+lxml
+playwright
+sentence-transformers
+chromadb
+numpy
+pyyaml
+python-dotenv
+groq
+google-generativeai
+openai
+anthropic
+streamlit
+pytest

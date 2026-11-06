@@ -1,0 +1,15 @@
+.env
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+data/raw/
+data/scraped/
+data/loaded/
+data/chunks/
+data/embeddings/
+data/chroma/
+logs/
+.vercel/
+.streamlit/secrets.toml
