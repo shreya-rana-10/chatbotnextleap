@@ -64,6 +64,7 @@ st.markdown(
         box-shadow:0 2px 8px rgba(30,34,41,.025);
     }
     [data-testid="stChatInput"] {
+        width: min(100%, 680px); margin-inline: auto;
         border:1px solid #dfe7e3; border-radius:18px; box-shadow:0 6px 20px rgba(30,34,41,.06);
     }
     [data-testid="stChatInput"] textarea { font-family:Inter,sans-serif; }
