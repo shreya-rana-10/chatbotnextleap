@@ -8,7 +8,7 @@ This prototype builds a traceable retrieval pipeline over exactly five public Gr
 2. Activate the environment and install dependencies with `pip install -r requirements.txt`.
 3. Copy `.env.example` to `.env`, add your `OPENROUTER_API_KEY`, and set `LLM_MODEL` to an OpenRouter model ID enabled for your account.
 4. For JavaScript-rendered page fallback, install Playwright's browser once with `playwright install chromium`.
-5. Run the entire data pipeline: `python -m src.ingestion.run_all`.
+5. To start locally, run `python -m src.ingestion.run_all` once (the first app question also builds the corpus automatically if artifacts are missing).
 6. Confirm vector completeness: `python -m src.ingestion.verify_store`.
 7. Check retrieval hits: `python -m scripts.smoke_test`.
 8. Start the FAQ: `streamlit run src/app.py`.
@@ -43,3 +43,5 @@ Run tests with `pytest`.
 ## Deployment
 
 The current UI is Streamlit and the local retrieval store is persistent ChromaDB. This app is not directly deployable to Vercel's serverless runtime. See [docs/deployment.md](./docs/deployment.md) for the Vercel frontend/backend split, required environment settings, and a deployment option for the current Streamlit app.
+
+On Streamlit Community Cloud, the first question automatically scrapes the five approved public pages and builds the local embedding and ChromaDB artifacts if they are missing. The first request can take several minutes. Add `LLM_PROVIDER`, `LLM_MODEL`, and `OPENROUTER_API_KEY` under the app's Streamlit Secrets settings.

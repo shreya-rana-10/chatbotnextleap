@@ -8,12 +8,14 @@ On the Streamlit-compatible host:
 
 1. Import the GitHub repository and select the app entry point `src/app.py`.
 2. Use Python 3.12 and install `requirements.txt`.
-3. Ensure the deployment has the generated `data/chunks/chunks.jsonl`, embedding artifacts, and `data/chroma/` collection. These runtime artifacts are intentionally excluded from Git; use a persistent disk or build/download them as part of deployment.
-4. Add backend secrets/environment variables:
+3. The first user question automatically scrapes the five allowlisted pages and builds embeddings and the local ChromaDB collection if artifacts are absent. Expect the first query to take several minutes; Streamlit Community Cloud may restart sleeping apps and rebuild this non-persistent local store.
+4. In the app settings, add these values under **Secrets**:
    - `LLM_PROVIDER=openrouter`
    - `LLM_MODEL=<an OpenRouter model ID enabled for your account>`
    - `OPENROUTER_API_KEY=<your key>`
-5. Redeploy after adding or changing secrets. Never paste secrets into source files, commits, chat, or browser-visible variables.
+5. Save secrets and reboot the app. Never paste secrets into source files, commits, chat, or browser-visible variables.
+
+Secrets configured through Streamlit are read with `st.secrets`; local development continues to use `.env`. The app can render before its API key is configured, but generated answers require a valid key and a model enabled for that account.
 
 ## Vercel
 

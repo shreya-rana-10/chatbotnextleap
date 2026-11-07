@@ -13,6 +13,8 @@ from src.ingestion.scrape import (
 )
 from src.pipeline import Assistant
 from src.llm.client import ProviderClient
+from src.config import get_api_key, get_setting
+from src.bootstrap import ensure_corpus_ready
 from src.retrieval.guards import classify, has_pii
 from src.retrieval.retriever import Retriever
 
@@ -334,3 +336,86 @@ def test_openrouter_uses_openai_compatible_client_without_network(monkeypatch):
     assert calls["client"]["api_key"] == "test-key-not-sent-over-network"
     assert calls["completion"]["model"] == "provider/test-model"
     assert calls["completion"]["max_tokens"] == 400
+
+
+def test_streamlit_secrets_supply_settings_and_api_keys(monkeypatch):
+    import src.config as config_module
+
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    monkeypatch.delenv("LLM_PROVIDER", raising=False)
+    monkeypatch.setattr(
+        config_module,
+        "_streamlit_secret",
+        lambda name, default: {
+            "OPENROUTER_API_KEY": "cloud-key",
+            "LLM_PROVIDER": "openrouter",
+        }.get(name, default),
+    )
+    assert get_api_key("openrouter") == "cloud-key"
+    assert get_setting("LLM_PROVIDER", "groq") == "openrouter"
+
+
+def test_environment_settings_override_streamlit_secrets(monkeypatch):
+    import src.config as config_module
+
+    monkeypatch.setenv("LLM_PROVIDER", "groq")
+    monkeypatch.setattr(
+        config_module, "_streamlit_secret", lambda _name, default: default
+    )
+    assert get_setting("LLM_PROVIDER", "openrouter") == "groq"
+
+
+def test_corpus_bootstrap_builds_missing_artifacts(tmp_path, monkeypatch):
+    import src.bootstrap as bootstrap_module
+
+    cfg = {
+        "paths": {
+            "chunks": "data/chunks/chunks.jsonl",
+            "embeddings": "data/embeddings",
+            "chroma": "data/chroma",
+        }
+    }
+    calls = []
+    monkeypatch.setattr(bootstrap_module, "ROOT", tmp_path)
+    monkeypatch.setattr(bootstrap_module, "load_config", lambda: cfg)
+    monkeypatch.setattr(bootstrap_module.run_all, "run", lambda: calls.append("build"))
+    monkeypatch.setattr(
+        bootstrap_module,
+        "verify_store",
+        lambda: calls.append("verify"),
+    )
+    ensure_corpus_ready()
+    assert calls == ["build"]
+
+
+def test_corpus_bootstrap_verifies_complete_artifacts(tmp_path, monkeypatch):
+    import src.bootstrap as bootstrap_module
+
+    cfg = {
+        "paths": {
+            "chunks": "data/chunks/chunks.jsonl",
+            "embeddings": "data/embeddings",
+            "chroma": "data/chroma",
+        }
+    }
+    calls = []
+    for relative_path in (
+        "data/chunks/chunks.jsonl",
+        "data/embeddings/embeddings.npy",
+        "data/embeddings/ids.json",
+        "data/embeddings/embedding_meta.json",
+    ):
+        artifact = tmp_path / relative_path
+        artifact.parent.mkdir(parents=True, exist_ok=True)
+        artifact.write_text("test", encoding="utf-8")
+    (tmp_path / "data/chroma").mkdir(parents=True)
+    monkeypatch.setattr(bootstrap_module, "ROOT", tmp_path)
+    monkeypatch.setattr(bootstrap_module, "load_config", lambda: cfg)
+    monkeypatch.setattr(bootstrap_module.run_all, "run", lambda: calls.append("build"))
+    monkeypatch.setattr(
+        bootstrap_module,
+        "verify_store",
+        lambda: calls.append("verify"),
+    )
+    ensure_corpus_ready()
+    assert calls == ["verify"]

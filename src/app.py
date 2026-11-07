@@ -1,5 +1,7 @@
 import streamlit as st
 
+from src.bootstrap import ensure_corpus_ready
+from src.config import load_config
 from src.pipeline import Assistant
 from src.retrieval.guards import has_pii
 
@@ -103,7 +105,9 @@ examples = [
 
 @st.cache_resource
 def get_assistant() -> Assistant:
-    return Assistant()
+    with st.spinner("Preparing the fund facts index for this deployment..."):
+        ensure_corpus_ready()
+    return Assistant(load_config())
 
 
 if "messages" not in st.session_state:
