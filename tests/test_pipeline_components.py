@@ -251,6 +251,12 @@ class FakeLLM:
         return "The expense ratio is 0.5%. See https://example.com."
 
 
+class EmptyRetriever(FakeRetriever):
+    def retrieve(self, question):
+        self.called = True
+        return []
+
+
 def test_pipeline_refuses_pii_without_retrieval_or_logging(tmp_path, monkeypatch):
     import src.pipeline as pipeline_module
 
@@ -295,6 +301,50 @@ def test_pipeline_answers_from_top_hit_and_logs_non_pii_trace(tmp_path, monkeypa
     assert "Last updated from sources:" in result["answer"]
     logged = json.loads((tmp_path / "logs" / "queries.jsonl").read_text(encoding="utf-8"))
     assert logged["query"] == "What is the expense ratio of HDFC Large Cap Fund?"
+
+
+def test_pipeline_retrieves_for_unrecognized_question_with_relevant_source(
+    tmp_path, monkeypatch
+):
+    import src.pipeline as pipeline_module
+
+    monkeypatch.setattr(pipeline_module, "ROOT", tmp_path)
+    assistant = Assistant(
+        cfg={
+            "paths": {"logs": "logs/queries.jsonl"},
+            "llm": {"max_sentences": 3},
+            "links": {
+                "educational": "https://www.amfiindia.com/investor-corner",
+                "factsheet_fallback": "https://groww.in/mutual-funds/amc/hdfc-mutual-funds",
+            },
+        },
+        retriever=FakeRetriever(),
+        llm=FakeLLM(),
+    )
+
+    result = assistant.ask("What about this?")
+
+    assert result["trace"]["class"] == "out_of_scope"
+    assert "expense ratio is 0.5%" in result["answer"]
+
+
+def test_pipeline_explains_supported_topics_when_no_relevant_source_is_found():
+    assistant = Assistant(
+        cfg={
+            "llm": {"max_sentences": 3},
+            "links": {
+                "educational": "https://www.amfiindia.com/investor-corner",
+                "factsheet_fallback": "https://groww.in/mutual-funds/amc/hdfc-mutual-funds",
+            },
+        },
+        retriever=EmptyRetriever(),
+        llm=FakeLLM(),
+    )
+
+    result = assistant.ask("What is the weather today?")
+
+    assert "expense ratio" in result["answer"]
+    assert result["trace"]["hits"] == []
 
 
 def test_openrouter_uses_openai_compatible_client_without_network(monkeypatch):

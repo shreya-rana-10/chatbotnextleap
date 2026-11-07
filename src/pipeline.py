@@ -12,6 +12,7 @@ from src.retrieval.retriever import Retriever
 
 logger = logging.getLogger(__name__)
 PII_MESSAGE = "Please don't share personal or account details. I've ignored that message."
+UNCLEAR_QUERY_MIN_SCORE = 0.35
 
 
 def _citation(answer: str, url: str, scraped_at: str, max_sentences: int) -> str:
@@ -70,13 +71,6 @@ class Assistant:
                 "answer": f"I don't calculate or compare returns. Please consult the official scheme page for performance details.\n\nSource: {link}",
                 "trace": {"class": label},
             }
-        if label == "out_of_scope":
-            link = self.cfg["links"]["educational"]
-            return {
-                "answer": f"I can answer factual questions about the listed HDFC Mutual Fund pages only.\n\nLearn more: {link}",
-                "trace": {"class": label},
-            }
-
         if (
             self.retriever.detect_fact_sections(question)
             and not self.retriever.detect_scheme(question)
@@ -91,6 +85,18 @@ class Assistant:
             }
 
         hits = self.retriever.retrieve(question)
+        if label == "out_of_scope" and (
+            not hits or hits[0]["score"] < UNCLEAR_QUERY_MIN_SCORE
+        ):
+            link = self.cfg["links"]["educational"]
+            return {
+                "answer": (
+                    "I couldn't match that question to the listed HDFC Mutual Fund "
+                    "sources. Try asking about a scheme's expense ratio, exit load, "
+                    f"minimum SIP, lock-in period, riskometer, or benchmark.\n\nLearn more: {link}"
+                ),
+                "trace": {"class": label, "hits": hits},
+            }
         if not hits:
             link = self.cfg["links"]["factsheet_fallback"]
             return {

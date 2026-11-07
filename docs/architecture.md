@@ -176,7 +176,7 @@ sequenceDiagram
 | `factual` | Default if in scope | Retrieve and answer |
 | `advice` | Keywords/intent such as "should I", "best", "buy", "sell", "invest in" | Refuse with educational link |
 | `performance` | "returns", "CAGR", "performance", "compare" | Refuse to compute, link factsheet |
-| `out_of_scope` | Unrelated to MF facts | Polite scope message |
+| `out_of_scope` | No recognized intent keywords | Try retrieval; answer only when the top source similarity is at least 0.35, otherwise suggest supported topics |
 
 Approach: fast rule-based check first, then an LLM fallback for ambiguous queries.
 
