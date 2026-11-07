@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#ffdad7", "primary-container": "#00d09c", "on-error": "#ffffff", "on-tertiary": "#ffffff", "on-secondary-fixed": "#002116", "background": "#f9f9ff", "on-secondary-fixed-variant": "#00513b", "on-primary-container": "#00533c", "on-primary-fixed": "#002116", "surface-container": "#ebeef7", "surface-dim": "#d7dae3", "inverse-on-surface": "#eef0fa", "tertiary-container": "#ff9d98", "on-primary": "#ffffff", "on-tertiary-fixed": "#410005", "on-tertiary-container": "#91131e", "on-tertiary-fixed-variant": "#8e101c", "on-primary-fixed-variant": "#00513b", "inverse-surface": "#2d3138", "surface-container-low": "#f1f3fd", "surface-variant": "#dfe2ec", "outline-variant": "#bacac1", "error": "#ba1a1a", "on-secondary": "#ffffff", "outline": "#6b7b72", "secondary-fixed": "#71fac8", "surface-container-high": "#e5e8f2", "surface-tint": "#006c4f", "surface": "#f9f9ff", "tertiary-fixed-dim": "#ffb3af", "primary-fixed": "#59fdc5", "tertiary": "#b02c31", "surface-bright": "#f9f9ff", "surface-container-lowest": "#ffffff", "on-background": "#181c23", "on-surface": "#181c23", "primary": "#006c4f", "surface-container-highest": "#dfe2ec", "secondary-container": "#6ef7c6", "on-error-container": "#93000a", "secondary-fixed-dim": "#50ddad", "secondary": "#006c4f", "inverse-primary": "#2fe0aa", "primary-fixed-dim": "#2fe0aa", "on-surface-variant": "#3c4a43", "error-container": "#ffdad6", "on-secondary-container": "#007153" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-lg": "1.5rem", "margin": "1.5rem", "space-xs": "0.25rem", "gutter": "1rem", "gutter-mobile": "0.75rem", "space-xl": "2rem", "margin-mobile": "1rem", "space-md": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "display-portfolio": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "label-md": ["Inter"], "display-portfolio-mobile": ["Inter"], "headline-sm": ["Inter"], "numeric-ticker": ["Inter"], "label-sm": ["Inter"] }, "fontSize": { "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-portfolio": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}], "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500"}], "display-portfolio-mobile": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}], "numeric-ticker": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 px-margin-mobile flex flex-col justify-between py-space-xs"><div class="flex items-center justify-between w-full h-11"><div class="flex items-center gap-space-sm"><span class="text-primary font-headline-lg text-headline-lg tracking-tight">Groww</span></div><div class="flex items-center gap-space-xs"><span class="hidden">Explore</span><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container relative text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-tertiary"></span></button><div class="w-11 h-11 flex items-center justify-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCd3rNn0JZAZKEfzgP05L7bEuejuvagL63sIMpR1Eo4NpEW97ZbufMcVyNFzf8J7P-fNJm0Qu1H_OogOby8Md8fCqz1ZI8YymiRAw-d7FP_ieT6QbXk-lsaG0Ijit80T4xP9apR3g8-HqlpFBsrJlxj_uOtlzyxC6VPXbG0f5HJsV334OqoFTOXDndEKHcQjKqS3L2ULowZ3TBwZOTfakFWENmOFCT38KE3kli3yJo"/></div></div></div><div class="w-full pb-1"><div class="w-full h-11 px-3 bg-surface-container-low rounded-xl flex items-center gap-space-sm text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[20px] text-outline">search</span><span class="font-body-md text-body-md text-outline truncate">Search stocks, mutual funds, ETFs...</span></div></div></div></header><main class="flex flex-col relative w-full pt-28 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full pb-6">
+<!-- Sub-Header / Chat Context Bar -->
+<div class="sticky top-0 z-20 bg-surface/95 backdrop-blur-md px-margin-mobile py-2.5 flex items-center justify-between shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Go back" class="w-9 h-9 -ml-1 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="relative flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center overflow-hidden">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-primary-container ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Groww Assist</span>
+<span class="bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm px-1.5 py-0.5 rounded-full">AI COPILOT</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-body-sm text-body-sm text-outline">Online • Analyzing live markets</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Clear chat" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+</button>
+<button aria-label="More options" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Main Feed Area -->
+<div class="flex flex-col px-margin-mobile pt-3 pb-2 gap-4">
+<!-- Timestamp Divider -->
+<div class="flex items-center justify-center">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full bg-surface-container text-on-surface-variant shadow-sm">
+        Today • 10:42 AM IST
+      </span>
+</div>
+<!-- Bot Welcome Message Bubble -->
+<div class="flex items-start gap-2.5 max-w-[92%]">
+<div class="w-7 h-7 rounded-full bg-primary-container/20 flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="bg-surface-container-lowest p-3.5 rounded-2xl rounded-tl-sm shadow-[0_2px_8px_-2px_rgba(30,34,41,0.04)]">
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="font-label-sm text-label-sm text-primary font-semibold">GROWW INTELLIGENCE</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-outline">Just now</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Hello Rahul! 👋 I can help you analyze your portfolio, track market trends, discover mutual funds, or explain complex financial metrics in plain English.
+          </p>
+</div>
+</div>
+</div>
+<!-- Quick Suggested Prompts Horizontal Slider -->
+<div class="flex flex-col gap-2 pl-9">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tips_and_updates</span> Suggested queries
+      </span>
+<div class="flex gap-2 overflow-x-auto pb-1 -mx-2 px-2 no-scrollbar">
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95 text-on-surface rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all" type="button">
+<span class="font-label-md text-label-md">📊 Analyze my portfolio</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95 text-on-surface rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all" type="button">
+<span class="font-label-md text-label-md">💡 Top SIP funds for 2025</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95 text-on-surface rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all" type="button">
+<span class="font-label-md text-label-md">⚡ Tata Motors Q3</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest hover:bg-surface-container-low active:scale-95 text-on-surface rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all" type="button">
+<span class="font-label-md text-label-md">📈 NIFTY 50 forecast</span>
+</button>
+</div>
+</div>
+<!-- User Message Bubble (Right Aligned) -->
+<div class="flex flex-col items-end self-end max-w-[85%] mt-1">
+<div class="bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-2xl rounded-tr-sm shadow-sm">
+<p class="font-body-md text-body-md leading-relaxed">
+          How is my portfolio performing compared to Nifty 50 this month?
+        </p>
+</div>
+<div class="flex items-center gap-1 mt-1 pr-1">
+<span class="font-body-sm text-body-sm text-outline">10:44 AM</span>
+<span class="material-symbols-outlined text-primary text-[14px]">done_all</span>
+</div>
+</div>
+<!-- Bot Response Card (Left Aligned with Detailed Analytical Breakdown) -->
+<div class="flex items-start gap-2.5 max-w-full">
+<div class="w-7 h-7 rounded-full bg-primary-container/20 flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-2.5 w-full min-w-0">
+<!-- Main Analysis Card -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl rounded-tl-sm shadow-[0_2px_12px_-3px_rgba(30,34,41,0.06)] flex flex-col gap-3">
+<!-- Summary Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-md text-label-md text-primary font-semibold">Alpha Generated (+2.1%)</span>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-container/20 text-on-secondary-container px-2 py-0.5 rounded-full font-medium">Month to Date</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+            Great news! Your portfolio generated <span class="font-semibold text-primary">+4.2%</span> gains this month, outperforming the benchmark <span class="font-semibold text-on-surface">NIFTY 50 (+2.1%)</span> by <span class="font-semibold text-primary">2.1%</span>.
+          </p>
+<!-- Side-by-Side Comparison Container -->
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2.5">
+<!-- Row 1: Your Portfolio -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">account_balance_wallet</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Your Portfolio</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-numeric-ticker text-numeric-ticker text-on-surface">₹3,74,820</span>
+<span class="bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-0.5">arrow_upward</span>4.2%
+                  </span>
+</div>
+</div>
+<!-- Progress Indicator Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[78%]"></div>
+</div>
+</div>
+<!-- Row 2: Nifty 50 Benchmark -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[18px]">stacked_line_chart</span>
+<span class="font-body-md text-body-md text-on-surface-variant">NIFTY 50 (Benchmark)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-numeric-ticker text-numeric-ticker text-outline">24,312</span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-0.5">arrow_upward</span>2.1%
+                  </span>
+</div>
+</div>
+<!-- Benchmark Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full w-[42%]"></div>
+</div>
+</div>
+</div>
+<!-- Highlight Stock Contributor -->
+<div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-low/70">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center font-bold text-xs text-primary shadow-sm flex-shrink-0">
+              TM
+            </div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Tata Motors Ltd.</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>+3.42%
+                </span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">Top portfolio contributor • ₹942.10</span>
+</div>
+</div>
+<!-- Action Buttons / Follow Up Suggestions -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="w-full py-2 px-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high active:scale-98 flex items-center justify-center gap-1.5 text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">analytics</span>
+<span class="font-label-md text-label-md truncate">Full Breakdown</span>
+</button>
+<button class="w-full py-2 px-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high active:scale-98 flex items-center justify-center gap-1.5 text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">balance</span>
+<span class="font-label-md text-label-md truncate">Rebalance Tips</span>
+</button>
+</div>
+<!-- Micro feedback & Copy -->
+<div class="flex items-center justify-between pt-1 text-outline">
+<span class="font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Real-time computed
+            </span>
+<div class="flex items-center gap-2">
+<button aria-label="Copy response" class="hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+<button aria-label="Helpful" class="hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+</button>
+<button aria-label="Unhelpful" class="hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">thumb_down</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Assistant Status Indicator -->
+<div class="flex items-center gap-2 pl-9 py-1">
+<div class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-body-sm text-body-sm">Listening for your questions...</span>
+</div>
+</div>
+</div>
+<!-- Interactive Input Module Fixed Above Shell Nav -->
+<div class="sticky bottom-0 z-30 bg-surface/95 backdrop-blur-lg px-margin-mobile pt-2 pb-3 shadow-[0_-4px_16px_rgba(0,0,0,0.04)]">
+<!-- Suggested follow up prompt pill -->
+<div class="flex items-center gap-2 mb-2 overflow-x-auto no-scrollbar">
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">Ask next:</span>
+<button class="flex-shrink-0 font-body-sm text-body-sm px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+        Should I book profit in Tata Motors?
+      </button>
+<button class="flex-shrink-0 font-body-sm text-body-sm px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+        Compare with Bank NIFTY
+      </button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-center gap-2 bg-surface-container-lowest rounded-2xl p-1.5 shadow-[0_2px_8px_rgba(30,34,41,0.06)] focus-within:ring-2 focus-within:ring-primary-container transition-all">
+<button aria-label="Attach portfolio or file" class="w-9 h-9 rounded-xl flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-0 outline-none font-body-md text-body-md text-on-surface placeholder:text-outline/70 min-w-0 px-1 py-1" id="groww-ai-chat-input" placeholder="Ask anything about stocks, mutual funds, or markets..." type="text"/>
+<button aria-label="Voice input" class="w-9 h-9 rounded-xl flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button aria-label="Send query" class="w-10 h-10 rounded-xl bg-primary-container active:scale-95 text-on-primary flex items-center justify-center shadow-sm hover:brightness-95 transition-all" id="groww-ai-send-btn" type="button">
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_upward</span>
+</button>
+</div>
+<!-- Mandatory Regulatory / AI Disclaimer -->
+<p class="font-label-sm text-label-sm text-outline/80 text-center mt-2 px-2 leading-tight">
+      AI insights are for educational purposes. Verify before investing. SEBI Reg. INH000007890.
+    </p>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for sending prompts
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('groww-ai-chat-input');
+    const sendBtn = document.getElementById('groww-ai-send-btn');
+
+    if (sendBtn && input) {
+      sendBtn.addEventListener('click', () => {
+        if (input.value.trim() !== '') {
+          input.value = '';
+          input.placeholder = 'Thinking... analyzing live charts';
+          setTimeout(() => {
+            input.placeholder = 'Ask anything about stocks, mutual funds, or markets...';
+          }, 1400);
+        }
+      });
+      
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          sendBtn.click();
+        }
+      });
+    }
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary font-label-md"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant transition-colors hover:text-on-surface" data-path="explore" href="#"><span class="material-symbols-outlined text-[24px]">explore</span><span class="font-label-sm text-label-sm mt-0.5">Explore</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant transition-colors hover:text-on-surface" data-path="investments" href="#"><span class="material-symbols-outlined text-[24px]">work</span><span class="font-label-sm text-label-sm mt-0.5">Investments</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant transition-colors hover:text-on-surface" data-path="watchlist" href="#"><span class="material-symbols-outlined text-[24px]">bookmark</span><span class="font-label-sm text-label-sm mt-0.5">Watchlist</span></a><a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant transition-colors hover:text-on-surface" data-path="pay-profile" href="#"><span class="material-symbols-outlined text-[24px]">account_balance_wallet</span><span class="font-label-sm text-label-sm mt-0.5">Pay</span></a></div></nav></body></html>
